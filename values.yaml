@@ -8,11 +8,11 @@ configmap:
 backend:
   appName: sudoku-backend
   image:
-   name: docker.io/localhost/sudoku-backend
+   name: ghcr.io/ptrk25/sudoku-backend
    tag: latest
 
 frontend:
   appName: sudoku-frontend
   image:
-   name: localhost/sudoku-frontend
-   tag: static_title
+   name: ghcr.io/ptrk25/sudoku-frontend
+   tag: latest
