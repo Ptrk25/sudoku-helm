@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  sudoku-helm:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2024-06-27T11:08:31.887929852Z"
+    description: A Helm chart for the sudoku application
+    digest: fcc214991f9cb92c3240a6a54053c9742b5852943c502dd6aa27e0147512be09
+    name: sudoku-helm
+    type: application
+    urls:
+    - https://github.com/Ptrk25/sudoku-helm/releases/download/sudoku-helm-0.4.0/sudoku-helm-0.4.0.tgz
+    version: 0.4.0
+generated: "2024-06-27T11:08:31.887934931Z"
