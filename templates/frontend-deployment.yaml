@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.frontend.appName }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.frontend.appName }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.frontend.appName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.frontend.appName }}
+    spec:
+      containers:
+      - name: {{ .Values.frontend.appName }}
+        image: "{{ .Values.frontend.image.name }}:{{ .Values.frontend.image.tag}}"
+        imagePullPolicy: Never
+        envFrom:
+        - configMapRef:
+            name: sudokuconfigmap
+        ports:
+          - containerPort: 3000

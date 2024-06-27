@@ -1,0 +1,18 @@
+namespace: default
+
+configmap:
+  name: sudokuconfigmap
+  data:
+    BACKEND_SERVER: "sudoku-backend:3000"
+
+backend:
+  appName: sudoku-backend
+  image:
+   name: docker.io/localhost/sudoku-backend
+   tag: latest
+
+frontend:
+  appName: sudoku-frontend
+  image:
+   name: localhost/sudoku-frontend
+   tag: static_title
