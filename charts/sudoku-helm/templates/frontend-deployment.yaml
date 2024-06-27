@@ -1,25 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.frontend.appName }}
+  name: {{ .Values.containers.frontend.appName }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: {{ .Values.frontend.appName }}
+    app: {{ .Values.containers.frontend.appName }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.frontend.appName }}
+      app: {{ .Values.containers.frontend.appName }}
   template:
     metadata:
       labels:
-        app: {{ .Values.frontend.appName }}
+        app: {{ .Values.containers.frontend.appName }}
     spec:
       containers:
-      - name: {{ .Values.frontend.appName }}
-        image: "{{ .Values.frontend.image.name }}:{{ .Values.frontend.image.tag}}"
+      - name: {{ .Values.containers.frontend.appName }}
+        image: "{{ .Values.containers.frontend.image.name }}:{{ .Values.containers.frontend.image.tag}}"
+        imagePullPolicy: {{ .Values.containers.frontend.image.imagePullPolicy }}
         envFrom:
         - configMapRef:
-            name: sudokuconfigmap
+            name: {{ .Values.configmap.name }}
         ports:
-          - containerPort: 3000
+          - containerPort: {{ .Values.containers.frontend.ports.internal }}

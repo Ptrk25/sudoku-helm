@@ -1,0 +1,17 @@
+namespace: development
+
+configmap:
+  data:
+    ENVIRONMENT: dev
+
+backend:
+  image:
+    name: docker.io/localhost/sudoku-backend
+    tag: latest
+    imagePullPolicy: Never
+
+frontend:
+  image:
+    name: docker.io/localhost/sudoku-backend
+    tag: latest
+    imagePullPolicy: Never

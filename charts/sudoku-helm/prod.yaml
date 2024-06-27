@@ -1,0 +1,17 @@
+namespace: pluebker-test
+
+configmap:
+  data:
+    ENVIRONMENT: prod
+
+backend:
+  image:
+    name: ghcr.io/ptrk25/sudoku-backend
+    tag: latest
+    imagePullPolicy: IfNotPresent
+
+frontend:
+  image:
+    name: ghcr.io/ptrk25/sudoku-backend
+    tag: latest
+    imagePullPolicy: IfNotPresent
