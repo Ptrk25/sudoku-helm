@@ -18,7 +18,6 @@ spec:
       containers:
       - name: {{ .Values.frontend.appName }}
         image: "{{ .Values.frontend.image.name }}:{{ .Values.frontend.image.tag}}"
-        imagePullPolicy: Never
         envFrom:
         - configMapRef:
             name: sudokuconfigmap
