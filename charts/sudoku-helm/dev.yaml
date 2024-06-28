@@ -15,3 +15,6 @@ frontend:
     name: docker.io/localhost/sudoku-backend
     tag: latest
     imagePullPolicy: Never
+
+route:
+  enable: false

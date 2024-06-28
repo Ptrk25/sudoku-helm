@@ -23,3 +23,8 @@ frontend:
   ports:
     internal: 3000
     external: 3000
+
+route:
+  enable: true
+  name: sudoku-route
+  host: sudoku-test.apps.ccnap.bpe.local
