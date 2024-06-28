@@ -4,4 +4,5 @@ metadata:
   name: {{ .Values.configmap.name }}
   namespace: {{ .Values.namespace }}
 data:
-  BACKEND_SERVER: {{ printf "%v:%v" (tpl .Values.configmap.data.BACKEND_SERVER .) .Values.containers.backend.ports.external }}
+  BACKEND_SERVER: {{ printf "%v:%v" (tpl .Values.configmap.data.BACKEND_SERVER .) .Values.backend.ports.external }}
+  ENVIRONMENT: {{ .Values.configmap.data.ENVIRONMENT }}

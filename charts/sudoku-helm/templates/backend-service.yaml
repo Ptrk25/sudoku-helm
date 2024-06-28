@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.containers.backend.appName }}
+  name: {{ .Values.backend.appName }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: {{ .Values.containers.backend.appName }}
+    app: {{ .Values.backend.appName }}
 spec:
   type: ClusterIP
   selector:
-    app: {{ .Values.containers.backend.appName }}
+    app: {{ .Values.backend.appName }}
   ports:
-    - port: {{ .Values.containers.backend.ports.external }}
-      targetPort: {{ .Values.containers.backend.ports.internal }}
-      name: {{ .Values.containers.backend.appName }}
+    - port: {{ .Values.backend.ports.external }}
+      targetPort: {{ .Values.backend.ports.internal }}
+      name: {{ .Values.backend.appName }}

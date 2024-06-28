@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.containers.frontend.appName }}
+  name: {{ .Values.frontend.appName }}
   namespace: {{ .Values.namespace }}
   labels:
-    app: {{ .Values.containers.frontend.appName }}
+    app: {{ .Values.frontend.appName }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.containers.frontend.appName }}
+      app: {{ .Values.frontend.appName }}
   template:
     metadata:
       labels:
-        app: {{ .Values.containers.frontend.appName }}
+        app: {{ .Values.frontend.appName }}
     spec:
       containers:
-      - name: {{ .Values.containers.frontend.appName }}
-        image: "{{ .Values.containers.frontend.image.name }}:{{ .Values.containers.frontend.image.tag}}"
-        imagePullPolicy: {{ .Values.containers.frontend.image.imagePullPolicy }}
+      - name: {{ .Values.frontend.appName }}
+        image: {{ printf "%v:%v" .Values.frontend.image.name .Chart.AppVersion }}
+        imagePullPolicy: {{ .Values.frontend.image.imagePullPolicy }}
         envFrom:
         - configMapRef:
             name: {{ .Values.configmap.name }}
         ports:
-          - containerPort: {{ .Values.containers.frontend.ports.internal }}
+          - containerPort: {{ .Values.frontend.ports.internal }}
