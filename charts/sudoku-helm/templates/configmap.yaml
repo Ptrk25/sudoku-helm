@@ -5,3 +5,4 @@ metadata:
   namespace: {{ .Values.namespace }}
 data:
   BACKEND_SERVER: {{ printf "%v:%v" (tpl .Values.configmap.data.BACKEND_SERVER .) .Values.backend.ports.external }}
+  ENVIRONMENT: {{ .Values.configmap.data.ENVIRONMENT }}

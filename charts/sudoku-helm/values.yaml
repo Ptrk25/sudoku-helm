@@ -10,7 +10,6 @@ backend:
   appName: sudoku-backend
   image:
     name: ghcr.io/ptrk25/sudoku-backend
-    tag: "{{ .Chart.appVersion }}"
     imagePullPolicy: IfNotPresent
   ports:
     internal: 3000
@@ -20,7 +19,6 @@ frontend:
   appName: sudoku-frontend
   image:
     name: ghcr.io/ptrk25/sudoku-frontend
-    tag: "{{ .Chart.appVersion }}"
     imagePullPolicy: IfNotPresent
   ports:
     internal: 3000

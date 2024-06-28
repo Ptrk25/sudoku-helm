@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.frontend.appName }}
-        image: {{ printf "%v:%v" .Values.frontend.image.name (tpl .Values.frontend.image.tag .) }}
+        image: {{ printf "%v:%v" .Values.frontend.image.name .Chart.AppVersion }}
         imagePullPolicy: {{ .Values.frontend.image.imagePullPolicy }}
         envFrom:
         - configMapRef:

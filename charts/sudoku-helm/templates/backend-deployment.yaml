@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.backend.appName }}
-        image: {{ printf "%v:%v" .Values.backend.image.name (tpl .Values.backend.image.tag .) }}
+        image: {{ printf "%v:%v" .Values.backend.image.name .Chart.AppVersion }}
         imagePullPolicy: {{ .Values.backend.image.imagePullPolicy }}
         ports:
           - containerPort: {{ .Values.backend.ports.internal }}
