@@ -28,4 +28,4 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Lint chart
-        run: helm lint . --values values.yaml
+        run: helm lint charts/sudoku-helm --values values.yaml
