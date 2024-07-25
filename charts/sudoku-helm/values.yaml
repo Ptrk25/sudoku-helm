@@ -1,15 +1,14 @@
-namespace: pluebker-test
-
 configmap:
   name: sudokuconfigmap
   data:
-    BACKEND_SERVER: "{{ .Values.backend.appName }}"
+    BACKEND_SERVER: sudoku-backend
     ENVIRONMENT: prod
 
 backend:
   appName: sudoku-backend
   image:
     name: ghcr.io/ptrk25/sudoku-backend
+    tag: v0.1.0
     imagePullPolicy: IfNotPresent
   ports:
     internal: 3000
@@ -19,6 +18,7 @@ frontend:
   appName: sudoku-frontend
   image:
     name: ghcr.io/ptrk25/sudoku-frontend
+    tag: v0.2.0
     imagePullPolicy: IfNotPresent
   ports:
     internal: 3000

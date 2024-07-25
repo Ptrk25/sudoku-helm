@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.backend.appName }}
-  namespace: {{ .Values.namespace }}
   labels:
     app: {{ .Values.backend.appName }}
 spec:
@@ -17,7 +16,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.backend.appName }}
-        image: {{ printf "%v:v%v" .Values.backend.image.name .Chart.AppVersion }}
+        image: {{ printf "%v:%v" .Values.backend.image.name .Values.backend.image.tag }}
         imagePullPolicy: {{ .Values.backend.image.imagePullPolicy }}
         ports:
           - containerPort: {{ .Values.backend.ports.internal }}

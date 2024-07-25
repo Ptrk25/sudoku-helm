@@ -1,20 +1,15 @@
-namespace: development
-
 configmap:
   data:
     ENVIRONMENT: dev
 
+# TODO: Add volume for development
 backend:
   image:
-    name: docker.io/localhost/sudoku-backend
-    tag: latest
-    imagePullPolicy: Never
+    name: ghcr.io/ptrk25/sudoku-backend
 
 frontend:
   image:
-    name: docker.io/localhost/sudoku-backend
-    tag: latest
-    imagePullPolicy: Never
+    name: ghcr.io/ptrk25/sudoku-backend
 
 route:
   enable: false
